@@ -1,0 +1,40 @@
+#include <iostream>
+#include <cstring>
+
+using namespace std;
+
+// Overloaded function to concatenate two strings
+string concatenate(string str1, string str2) {
+    return str1 + str2;
+}
+
+// Overloaded function to concatenate two character arrays
+char* concatenate(char arr1[], char arr2[]) {
+    char* result = new char[strlen(arr1) + strlen(arr2) + 1];
+    strcpy(result, arr1);
+    strcat(result, arr2);
+    return result;
+}
+
+int main() {
+    // Strings
+    string str1 = "Hello, ";
+    string str2 = "world!";
+
+    // Character arrays
+    char arr1[] = "Good ";
+    char arr2[] = "morning!";
+
+    // Concatenating two strings
+    string concatenatedString = concatenate(str1, str2);
+    cout << "Concatenated String: " << concatenatedString << endl;
+
+    // Concatenating two character arrays
+    char* concatenatedCharArray = concatenate(arr1, arr2);
+    cout << "Concatenated Character Array: " << concatenatedCharArray << endl;
+
+    // Freeing dynamically allocated memory
+    delete[] concatenatedCharArray;
+
+    return 0;
+}
